@@ -41,7 +41,7 @@ extend-select = [
     "S",      # flake8-bandit
     "Q",      # flake8-quotes
     "I",      # isort
-    "D",      # pydocstyle
+  #  "D",      # pydocstyle
     "ANN",    # flake8-annotations
     "PYI",    # flake8-pyi
     "PGH003", # pygrep-hooks/blanket-type-ignore

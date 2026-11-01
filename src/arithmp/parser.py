@@ -15,7 +15,7 @@ _builtins = {
 
 
 class Parser:
-    def __init__(self):
+    def __init__(self) -> None:
         self.parser = Lark(
             Path(__file__).parent.joinpath("arithmp.lark").read_text(), parser="lalr"
         )

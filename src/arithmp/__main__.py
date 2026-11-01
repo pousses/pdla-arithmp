@@ -5,7 +5,7 @@ from .parser import Parser
 
 @click.command()
 @click.argument("expression")
-def main(expression: str):
+def main(expression: str) -> None:
     parser = Parser()
     result = parser.parse(expression)
 
