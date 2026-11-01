@@ -19,5 +19,74 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "pytest>=9.1.1",
+    "poethepoet>=0.49.0",
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+    "ty>=0.0.95",
 ]
+
+#partit finale 
+#[tool.poe.tasks]
+#format-imports = "ruff check --select I src tests --fix"
+#format-ruff = "ruff format src tests"
+#format.sequence = ["format-imports", "format-ruff"]
+#lint-ruff = "ruff check src tests"
+#lint-ruff-format = "ruff format --check src tests"
+#lint-ty = "ty check src tests"
+#lint.sequence = ["lint-ruff", "lint-ruff-format", "lint-ty"]
+#lint.ignore_fail = "return_non_zero"
+
+#parti sans teste le dossier teste
+[tool.poe.tasks]
+format-imports = "ruff check --select I src  --fix"
+format-ruff = "ruff format src "
+format.sequence = ["format-imports", "format-ruff"]
+lint-ruff = "ruff check src "
+lint-ruff-format = "ruff format --check src "
+lint-ty = "ty check src "
+lint.sequence = ["lint-ruff", "lint-ruff-format", "lint-ty"]
+lint.ignore_fail = "return_non_zero"
+
+[tool.ruff.lint]
+extend-select = [
+    "B",      # flake8-bugbear
+    "S",      # flake8-bandit
+    "Q",      # flake8-quotes
+    "I",      # isort
+  #  "D",      # pydocstyle
+    "ANN",    # flake8-annotations
+    "PYI",    # flake8-pyi
+    "PGH003", # pygrep-hooks/blanket-type-ignore
+]
+
+ignore = [
+    "S301", # suspicious-pickle-usage
+    "S403", # suspicious-pickle-import:
+    "D200", # unnecessary-multiline-docstring
+    "D205", #  missing-blank-line-after-summary
+    "D212", # multi-line-summary-first-line
+]
+preview = true
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "assert"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ty.analysis]
+strict-literal-narrowing = true
+
+[tool.ty.rules]
+blanket-ignore-comment = "error"
+missing-type-argument = "error"
+possibly-unresolved-reference = "warn"
+unsupported-dynamic-base = "warn"
+
+# required for now due to Quantity implementation
+invalid-type-form = "ignore"
+
+# TODO: keep this or not?
+possibly-missing-attribute = "warn"
+possibly-missing-import = "warn"
+
