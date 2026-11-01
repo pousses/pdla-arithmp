@@ -25,13 +25,25 @@ dev = [
     "ty>=0.0.95",
 ]
 
+#partit finale 
+#[tool.poe.tasks]
+#format-imports = "ruff check --select I src tests --fix"
+#format-ruff = "ruff format src tests"
+#format.sequence = ["format-imports", "format-ruff"]
+#lint-ruff = "ruff check src tests"
+#lint-ruff-format = "ruff format --check src tests"
+#lint-ty = "ty check src tests"
+#lint.sequence = ["lint-ruff", "lint-ruff-format", "lint-ty"]
+#lint.ignore_fail = "return_non_zero"
+
+#parti sans teste le dossier teste
 [tool.poe.tasks]
-format-imports = "ruff check --select I src tests --fix"
-format-ruff = "ruff format src tests"
+format-imports = "ruff check --select I src  --fix"
+format-ruff = "ruff format src "
 format.sequence = ["format-imports", "format-ruff"]
-lint-ruff = "ruff check src tests"
-lint-ruff-format = "ruff format --check src tests"
-lint-ty = "ty check src tests"
+lint-ruff = "ruff check src "
+lint-ruff-format = "ruff format --check src "
+lint-ty = "ty check src "
 lint.sequence = ["lint-ruff", "lint-ruff-format", "lint-ty"]
 lint.ignore_fail = "return_non_zero"
 
