@@ -13,10 +13,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "poethepoet" },
     { name = "pytest" },
-    { name = "ruff" },
-    { name = "ty" },
 ]
 
 [package.metadata]

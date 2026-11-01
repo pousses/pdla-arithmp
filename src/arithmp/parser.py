@@ -5,6 +5,7 @@ from pathlib import Path
 
 from lark import Lark, Token, Tree
 
+
 _builtins = {
     "add": operator.add,
     "sub": operator.sub,

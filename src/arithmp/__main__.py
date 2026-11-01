@@ -1,4 +1,5 @@
 import click
+import pytest
 
 from .parser import Parser
 
