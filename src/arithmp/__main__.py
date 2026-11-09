@@ -27,7 +27,9 @@ def main(command: str | None, args: tuple[str, ...]) -> None:
             if (result := parser.parse(None, command)) is not None:
                 click.echo(result)
         except ParserException as e:
-            click.echo(f"Error in command at line {e.context.line} column {e.context.column} '{e.context.source}': {e}")
+            click.echo(
+                f"Error in command at line {e.context.line} column {e.context.column} '{e.context.source}': {e}"
+            )
 
     else:
         filepath = Path(args[0])
