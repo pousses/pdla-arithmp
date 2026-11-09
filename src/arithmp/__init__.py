@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from arithmp!")
+"""Arithmp: A Python package for arithmetic operations."""
